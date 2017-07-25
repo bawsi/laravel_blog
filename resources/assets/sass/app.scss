@@ -1,9 +1,17 @@
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+body, html {
+	background-color: #fafafa;
+}
 
-// Variables
-@import "variables";
+// General partials
+@import 'partials/_helpers.scss';
+@import 'partials/_navbar.scss';
+@import 'partials/_footer.scss';
+@import 'partials/_messages.scss';
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Pages partials
+@import 'partials/pages/_home.scss';
+
+// Posts partials
+@import 'partials/posts/_show.scss';
+@import 'partials/posts/_create.scss';
