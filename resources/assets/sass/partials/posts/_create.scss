@@ -1,0 +1,20 @@
+div.container-posts-create {
+	margin-top: 30px;
+	form {
+		background-color: #FFFFFF;
+		padding: 20px;
+		box-shadow: 1px 1px 3px 1px #D4DAD3;
+
+		input {
+			margin-bottom: 10px;
+		}
+
+		button {
+			margin-top: 20px;
+
+			span {
+				margin-left: 5px;
+			}
+		}
+	}
+}
