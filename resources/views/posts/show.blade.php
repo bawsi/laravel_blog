@@ -1,19 +1,20 @@
 @extends('layouts.master')
 
 @section('content')
-	
-	@component('components.hero')
-		@slot('colorClass', 'is-info')
-		@slot('sizeClass', 'is-large')
-		@slot('backgroundImg', 'http://i.imgur.com/EiQv0CQ.png')
-		@slot('title', $post->title)
-		@slot('subtitle', 'something here')
-	@endcomponent
+	<div class="container-posts-show content">
+		@component('components.hero')
+			@slot('colorClass', 'is-info')
+			@slot('sizeClass', 'is-medium')
+			@slot('backgroundImg', 'http://i.imgur.com/EiQv0CQ.png')
+			@slot('title', $post->title)
+			@slot('subtitle', 'Author: John Doe | Category: ' . $post->category->name . ' | Published On: ' . $post->created_at->toFormattedDateString())
+		@endcomponent
 
-	<div class="container container-posts-show content"> {{-- content class allows normal usage of lists, blockquotes,... --}}
-		<article>
-			<p class="body">{!! $post->body !!}</p>
-		</article>
+		<div class="container "> {{-- content class allows normal usage of lists, blockquotes,... --}}
+			<article>
+				<p class="body">{!! $post->body !!}</p>
+			</article>
+		</div>
 	</div>
 
 @endsection

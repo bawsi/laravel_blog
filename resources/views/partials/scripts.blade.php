@@ -8,9 +8,14 @@
     });
 </script>
 
-{{-- notifications toggle --}}
+{{-- Hide notifications on X click --}}
 <script type="text/javascript">
 	$('div.notification > button.delete').click(function() {
-		$(this).parents().eq(3).slideUp(300).delay(1000).slideDown(300);
-	})
+		$(this).parents().eq(3).slideUp(300);
+	});
+
+	$('div.notification.is-success > button.delete').parents().eq(3).delay(4000).slideUp(300);
 </script>
+
+
+@yield('scripts')

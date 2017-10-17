@@ -1,0 +1,137 @@
+div.container-users-index {
+	background: white;
+	padding: 20px 30px;
+	box-shadow: 1px 1px 2px 1px #D7E3E0;
+
+	button.new-user-btn {
+		margin-bottom: 10px;
+		
+		span {
+			margin-right: 5px;
+			margin-top: 2px;
+			font-size: 20px;
+		}
+	}
+	
+	// Category options buttons
+	button.edit-btn, button.delete-btn {
+		float: left;
+		margin-left: 5px;
+	}
+	
+	// Create new category button
+	> button.new-category {
+		margin-bottom: 10px;
+
+		span {
+			 margin-right: 10px;
+			 margin-top: 2px;
+			 font-size: 20px;
+		}
+	}
+
+	// Create user modal
+	div.create-modal {
+		div.modal-content {
+			background-color: white;
+			padding: 20px;
+			position: relative;
+			overflow: visible;
+
+			form {
+				input {
+					margin-bottom: 7px;
+				}
+
+				> button {
+					margin-left: 5px;
+					margin-top: 20px;
+				}
+			}
+			// Positioning and styling close (X) button
+			button.modal-close {
+				background-color: rgba(0, 0, 0, 0.60);
+				position: absolute;
+				top: -15px;
+				right: -15px;
+
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.70);
+				}
+			}
+		}
+	}
+
+	// Edit user modal
+	div.edit-modal {
+		div.modal-content {
+			background-color: white;
+			padding: 20px;
+			position: relative;
+			overflow: visible;
+
+			form {
+				input {
+					margin-bottom: 7px;
+				}
+
+				> button {
+					margin-left: 5px;
+					margin-top: 20px;
+				}
+
+				select {
+					display: block;
+					margin-bottom: 7px;
+					width: 100%;
+				}
+			}
+			// Positioning and styling close (X) button
+			button.modal-close {
+				background-color: rgba(0, 0, 0, 0.60);
+				position: absolute;
+				top: -15px;
+				right: -15px;
+
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.70);
+				}
+			}
+		}
+	}
+
+	// delete category modal
+	div.delete-modal {
+		div.modal-content {
+			background-color: white;
+			padding: 20px;
+			position: relative;
+			overflow: visible;
+
+			form {
+				> select {
+					display: block;
+					margin: 10px 0px 25px 0px;
+					font-size: 16px;
+					height: 35px;
+					width: 80%;
+				}
+
+				> button {
+					margin-left: 5px;
+				}
+			}
+			// Positioning and styling close (X) button
+			button.modal-close {
+				background-color: rgba(0, 0, 0, 0.60);
+				position: absolute;
+				top: -15px;
+				right: -15px;
+
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.70);
+				}
+			}
+		}
+	}
+}

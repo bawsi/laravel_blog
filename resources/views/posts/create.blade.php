@@ -1,16 +1,23 @@
-@extends('layouts.master')
+@extends('layouts.manage')
 
 @section('content')
 
-	<div class="container container-posts-create">
-
-		<form action="/posts" method="POST">
+	<div class="container-posts-create">
+		<h1 class="title is-3">Publish new post</h1>
+		
+		<form action="{{ route('posts.store') }}" method="POST">
 			{{ csrf_field() }}
-			<h1 class="title is-3">Publish new article</h1>
+
 			<label for="title">Post title</label>
-			<input class="input" type="text" name="title" placeholder="Post title here">
+			<input class="input" type="text" name="title" placeholder="Post title here" value="{{ old('title') }}">
+			<label for="category">Category</label>
+			<select class="select" id="category" name="category">
+				@foreach($categories as $category)
+					<option {{ (old('category') == $category->id) ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+				@endforeach
+			</select>
 			<label for="body">Post body</label>
-			<textarea id="article-body" class="textarea" name="body"></textarea>
+			<textarea id="article-body" class="textarea" name="body">{{ old('body') }}</textarea>
 
 			<button class="button is-info m-t-10 is-fullwidth" type="submit">Publish <span class="fa fa-arrow-right"></span></button>
 		</form>

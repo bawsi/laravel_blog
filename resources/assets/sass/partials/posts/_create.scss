@@ -1,12 +1,17 @@
 div.container-posts-create {
-	margin-top: 30px;
+	background-color: #FFFFFF;
+	padding: 20px;
+	box-shadow: 1px 1px 3px 1px #D4DAD3;
+	
 	form {
-		background-color: #FFFFFF;
-		padding: 20px;
-		box-shadow: 1px 1px 3px 1px #D4DAD3;
-
 		input {
 			margin-bottom: 10px;
+		}
+
+		select {
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
 		}
 
 		button {

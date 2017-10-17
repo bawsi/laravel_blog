@@ -1,0 +1,15 @@
+div.container-posts-index {
+	background: white;
+	padding: 20px 30px;
+	box-shadow: 1px 1px 2px 1px #D7E3E0;
+
+	> a.button {
+		margin-bottom: 10px;
+
+		span {
+			 margin-right: 10px;
+			 margin-top: 2px;
+			 font-size: 20px;
+		}
+	}
+}

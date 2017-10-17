@@ -25,7 +25,22 @@
 		
 		{{-- Navbar right --}}
 		<div class="navbar-end">
-		</div>
+			<div id="navMenuExample" class="navbar-menu">
+				<div class="navbar-start">
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link  is-active">Account</a>
+						
+						<div class="navbar-dropdown ">
+							@if (auth()->check())
+								<a class="navbar-item " href="{{ route('manage.dashboard') }}">Manage</a>
+								<hr class="navbar-divider">
+								<a class="navbar-item " href="{{ route('auth.logout') }}">Logout</a>
+							@else
+								<a class="navbar-item" href="{{ route('auth.login') }}">Login</a>
+							@endif
+						</div>
 
-	</div>
-</nav>
+					</div>
+				</div>
+			</div>
+		</nav>

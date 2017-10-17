@@ -524,25 +524,242 @@ html {
 div.container-errors,
 div.container-success {
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+div.container-users-index {
+  background: white;
+  padding: 20px 30px;
+  -webkit-box-shadow: 1px 1px 2px 1px #D7E3E0;
+          box-shadow: 1px 1px 2px 1px #D7E3E0;
+}
+
+div.container-users-index button.new-user-btn {
+  margin-bottom: 10px;
+}
+
+div.container-users-index button.new-user-btn span {
+  margin-right: 5px;
+  margin-top: 2px;
+  font-size: 20px;
+}
+
+div.container-users-index button.edit-btn,
+div.container-users-index button.delete-btn {
+  float: left;
+  margin-left: 5px;
+}
+
+div.container-users-index > button.new-category {
+  margin-bottom: 10px;
+}
+
+div.container-users-index > button.new-category span {
+  margin-right: 10px;
+  margin-top: 2px;
+  font-size: 20px;
+}
+
+div.container-users-index div.create-modal div.modal-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+div.container-users-index div.create-modal div.modal-content form input {
+  margin-bottom: 7px;
+}
+
+div.container-users-index div.create-modal div.modal-content form > button {
+  margin-left: 5px;
+  margin-top: 20px;
+}
+
+div.container-users-index div.create-modal div.modal-content button.modal-close {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+div.container-users-index div.create-modal div.modal-content button.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+div.container-users-index div.edit-modal div.modal-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+div.container-users-index div.edit-modal div.modal-content form input {
+  margin-bottom: 7px;
+}
+
+div.container-users-index div.edit-modal div.modal-content form > button {
+  margin-left: 5px;
+  margin-top: 20px;
+}
+
+div.container-users-index div.edit-modal div.modal-content form select {
+  display: block;
+  margin-bottom: 7px;
+  width: 100%;
+}
+
+div.container-users-index div.edit-modal div.modal-content button.modal-close {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+div.container-users-index div.edit-modal div.modal-content button.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+div.container-users-index div.delete-modal div.modal-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+div.container-users-index div.delete-modal div.modal-content form > select {
+  display: block;
+  margin: 10px 0px 25px 0px;
+  font-size: 16px;
+  height: 35px;
+  width: 80%;
+}
+
+div.container-users-index div.delete-modal div.modal-content form > button {
+  margin-left: 5px;
+}
+
+div.container-users-index div.delete-modal div.modal-content button.modal-close {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+div.container-users-index div.delete-modal div.modal-content button.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+div.container-roles-index {
+  background: white;
+  padding: 20px 30px;
+  -webkit-box-shadow: 1px 1px 2px 1px #D7E3E0;
+          box-shadow: 1px 1px 2px 1px #D7E3E0;
+}
+
+div.container-roles-index button.new-role-btn {
+  margin-bottom: 10px;
+}
+
+div.container-roles-index button.new-role-btn span {
+  margin-right: 5px;
+  margin-top: 2px;
+  font-size: 20px;
+}
+
+div.container-roles-index button.edit-btn,
+div.container-roles-index button.delete-btn {
+  float: left;
+  margin-left: 5px;
+}
+
+div.container-roles-index > button.new-role {
+  margin-bottom: 10px;
+}
+
+div.container-roles-index > button.new-role span {
+  margin-right: 10px;
+  margin-top: 2px;
+  font-size: 20px;
+}
+
+div.container-roles-index div.create-modal div.modal-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+div.container-roles-index div.create-modal div.modal-content form input {
+  margin-bottom: 7px;
+}
+
+div.container-roles-index div.create-modal div.modal-content form > button {
+  margin-left: 5px;
+  margin-top: 20px;
+}
+
+div.container-roles-index div.create-modal div.modal-content button.modal-close {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+div.container-roles-index div.create-modal div.modal-content button.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+div.container-roles-index div.delete-modal div.modal-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+div.container-roles-index div.delete-modal div.modal-content form > select {
+  display: block;
+  margin: 10px 0px 25px 0px;
+  font-size: 16px;
+  height: 35px;
+  width: 80%;
+}
+
+div.container-roles-index div.delete-modal div.modal-content form > button {
+  margin-left: 5px;
+}
+
+div.container-roles-index div.delete-modal div.modal-content button.modal-close {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+div.container-roles-index div.delete-modal div.modal-content button.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+div.container-posts-show h1.title {
+  font-family: 'Racing Sans One';
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+div.container-posts-show h2.subtitle {
+  font-size: 14px;
 }
 
 div.container-posts-show article {
   background-color: #FFFFFF;
-  margin-top: 30px;
+  margin-top: 0px;
   padding: 40px 30px;
   -webkit-box-shadow: 1px 1px 3px 1px #D4DAD3;
           box-shadow: 1px 1px 3px 1px #D4DAD3;
-}
-
-div.container-posts-show article .title {
-  margin-bottom: 40px;
+  font-family: 'Open Sans';
 }
 
 div.container-posts-create {
-  margin-top: 30px;
-}
-
-div.container-posts-create form {
   background-color: #FFFFFF;
   padding: 20px;
   -webkit-box-shadow: 1px 1px 3px 1px #D4DAD3;
@@ -553,11 +770,142 @@ div.container-posts-create form input {
   margin-bottom: 10px;
 }
 
+div.container-posts-create form select {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
 div.container-posts-create form button {
   margin-top: 20px;
 }
 
 div.container-posts-create form button span {
   margin-left: 5px;
+}
+
+div.container-posts-index {
+  background: white;
+  padding: 20px 30px;
+  -webkit-box-shadow: 1px 1px 2px 1px #D7E3E0;
+          box-shadow: 1px 1px 2px 1px #D7E3E0;
+}
+
+div.container-posts-index > a.button {
+  margin-bottom: 10px;
+}
+
+div.container-posts-index > a.button span {
+  margin-right: 10px;
+  margin-top: 2px;
+  font-size: 20px;
+}
+
+div.container-posts-edit {
+  background-color: #FFFFFF;
+  padding: 20px;
+  -webkit-box-shadow: 1px 1px 3px 1px #D4DAD3;
+          box-shadow: 1px 1px 3px 1px #D4DAD3;
+}
+
+div.container-posts-edit form input,
+div.container-posts-edit form textarea,
+div.container-posts-edit form select {
+  margin-bottom: 10px;
+}
+
+div.container-posts-edit form #category {
+  display: block;
+  width: 100%;
+}
+
+div.container-posts-edit form button.button span {
+  margin-left: 5px;
+}
+
+div.container-categories-index {
+  background: white;
+  padding: 20px 30px;
+  -webkit-box-shadow: 1px 1px 2px 1px #D7E3E0;
+          box-shadow: 1px 1px 2px 1px #D7E3E0;
+}
+
+div.container-categories-index button.edit-btn,
+div.container-categories-index button.delete-btn {
+  float: left;
+  margin-left: 5px;
+}
+
+div.container-categories-index > button.new-category {
+  margin-bottom: 10px;
+}
+
+div.container-categories-index > button.new-category span {
+  margin-right: 10px;
+  margin-top: 2px;
+  font-size: 20px;
+}
+
+div.container-categories-index div.delete-modal div.modal-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+div.container-categories-index div.delete-modal div.modal-content form > select {
+  display: block;
+  margin: 10px 0px 25px 0px;
+  font-size: 16px;
+  height: 35px;
+  width: 80%;
+}
+
+div.container-categories-index div.delete-modal div.modal-content form > button {
+  margin-left: 5px;
+}
+
+div.container-categories-index div.delete-modal div.modal-content button.modal-close {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+div.container-categories-index div.delete-modal div.modal-content button.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+div.container-categories-index div.create-modal div.modal-content {
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+div.container-categories-index div.create-modal div.modal-content button.button {
+  margin-top: 20px;
+}
+
+div.container-categories-index div.create-modal div.modal-content button.close-modal {
+  margin-right: 10px;
+}
+
+div.container-categories-index div.create-modal div.modal-content button.modal-close {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+div.container-categories-index div.create-modal div.modal-content button.modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+aside.admin-sidebar {
+  padding: 20px 10px;
+  background: white;
+  -webkit-box-shadow: 1px 1px 1px 1px #D7E3E0;
+          box-shadow: 1px 1px 1px 1px #D7E3E0;
 }
 

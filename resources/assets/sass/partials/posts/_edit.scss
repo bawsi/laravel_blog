@@ -1,0 +1,22 @@
+div.container-posts-edit {
+	background-color: #FFFFFF;
+	padding: 20px;
+	box-shadow: 1px 1px 3px 1px #D4DAD3;
+
+	form {
+		input, textarea, select {
+			margin-bottom: 10px;
+		}
+
+		#category {
+			display: block;
+			width: 100%;
+		}
+
+		button.button {
+			span {
+				margin-left: 5px;
+			}
+		}
+	}
+}
