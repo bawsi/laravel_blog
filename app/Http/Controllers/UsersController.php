@@ -13,7 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-    	$users = User::orderBy('created_at')->with('posts')->get();
+    	$users = User::orderBy('id')->with('posts')->get();
         $roles = Role::orderBy('id')->get();
 
     	return view('users.index')->with(compact('users', 'roles'));

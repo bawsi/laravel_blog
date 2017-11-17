@@ -22,8 +22,8 @@
 						<td>{{ $user->name }}</td>
 						<td>{{ $user->email }}</td>
 						<td>{{ $user->role->name }}</td>
-						<td>TODO</td>
-						<td>TODO</td>
+						<td>{{ $user->posts->count() }}</td>
+						<td>{{ $user->posts->last()->title ?? "No posts yet" }}</td>
 						
 						<td>
 							<button class="button is-info is-small edit-btn"><span class="fa fa-pencil-square-o"></span></button>
