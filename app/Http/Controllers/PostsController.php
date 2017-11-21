@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use App\Post;
+use Storage;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -41,17 +43,31 @@ class PostsController extends Controller
      */
     public function store()
     {
+
         $this->validate(request(), [
             'title'    => 'min:2|max:100',
             'body'     => 'min:30',
             'category' => 'exists:categories,id',
         ]);
 
+        // If article thumbnail image was uploaded, store it, else, set path to NULL
+        if (request()->hasFile('img')) {
+            // setting file path and image name, then saving it
+            $imgPath = 'article_thumbnails/' . request()->img->getClientOriginalName();
+            Storage::disk('uploads')->put($imgPath, file_get_contents(request()->img));
+
+            // Resizing image to fit better
+            $img = Image::make('uploads/' . $imgPath);
+            $img->fit(450, 200);
+            $img->save();
+        }
+
         $post = Post::create([
-            'title'       => request('title'),
-            'body'        => request('body'),
-            'user_id'     => auth()->user()->id,
-            'category_id' => request('category'),
+            'title'          => request('title'),
+            'body'           => request('body'),
+            'thumbnail_path' => isset($imgPath) ? 'uploads/' . $imgPath : null,
+            'user_id'        => auth()->id(),
+            'category_id'    => request('category'),
         ]);
 
         session()->flash('success', 'Post successfully published');

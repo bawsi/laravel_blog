@@ -1,21 +1,25 @@
 @extends('layouts.manage')
 
 @section('content')
-
 	<div class="container-posts-create">
 		<h1 class="title is-3">Publish new post</h1>
 		
-		<form action="{{ route('posts.store') }}" method="POST">
+		<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
 			{{ csrf_field() }}
 
 			<label for="title">Post title</label>
 			<input class="input" type="text" name="title" placeholder="Post title here" value="{{ old('title') }}">
+			
 			<label for="category">Category</label>
 			<select class="select" id="category" name="category">
 				@foreach($categories as $category)
 					<option {{ (old('category') == $category->id) ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
 				@endforeach
 			</select>
+			
+			<label for="img">Article thumbnail image (Preferrable size 450x200. Will be cropped and resized otherwise)</label>
+			<input type="file" name="img" class="input" value="{{ old('img') }}">
+
 			<label for="body">Post body</label>
 			<textarea id="article-body" class="textarea" name="body">{{ old('body') }}</textarea>
 
