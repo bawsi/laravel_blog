@@ -22,7 +22,7 @@
 
 							<div class="card-image">
 								<figure class="image">
-									<img src="http://lorempixel.com/450/200/" alt="Image">
+									<img src="{{ $post->thumbnail_path }}" alt="Image">
 								</figure>
 							</div>
 
