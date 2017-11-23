@@ -53,8 +53,9 @@ class PostsController extends Controller
 
         // If article thumbnail image was uploaded, store it, else, set path to NULL
         if (request()->hasFile('img')) {
+            
             // setting file path and image name, then saving it
-            $imgPath = 'article_thumbnails/' . request()->img->getClientOriginalName();
+            $imgPath = 'article_thumbnails/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img->getClientOriginalExtension();
             Storage::disk('uploads')->put($imgPath, file_get_contents(request()->img));
 
             // Resizing image to fit better
@@ -97,10 +98,26 @@ class PostsController extends Controller
             'category' => 'exists:categories,id',
         ]);
 
+        // If new image was uploaded, delete old one, upload and resize new one
+        if (request()->hasFile('img')) {
+            // Deleting old thumbnail img
+            File::delete(public_path($post->thumbnail_path));
+
+             // setting file path and image name, then saving it
+            $imgPath = 'article_thumbnails/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img->getClientOriginalExtension();
+            Storage::disk('uploads')->put($imgPath, file_get_contents(request()->img));
+
+            // Resizing image to fit better
+            $img = Image::make('uploads/' . $imgPath);
+            $img->fit(450, 200);
+            $img->save();
+        }
+
         $post->update([
-            'title'    => request('title'),
-            'body'     => request('body'),
-            'category_id' => request('category'),
+            'title'          => request('title'),
+            'body'           => request('body'),
+            'category_id'    => request('category'),
+            'thumbnail_path' => isset($imgPath) ? 'uploads/' . $imgPath : $post->thumbnail_path,
         ]);
 
         session()->flash('success', 'Post with ID of ' . $post->id . ' successfully updated.');
