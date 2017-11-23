@@ -97,7 +97,7 @@ class PostsController extends Controller
             'body'     => 'min:30',
             'category' => 'exists:categories,id',
         ]);
-        
+
         // If new image was uploaded, delete old one, upload and resize new one
         if (request()->hasFile('img')) {
             // Deleting old thumbnail img
@@ -117,7 +117,7 @@ class PostsController extends Controller
             'title'          => request('title'),
             'body'           => request('body'),
             'category_id'    => request('category'),
-            'thumbnail_path' => isset($imgPath) ? $imgPath : $post->thumbnail_path,
+            'thumbnail_path' => isset($imgPath) ? 'uploads/' . $imgPath : $post->thumbnail_path,
         ]);
 
         session()->flash('success', 'Post with ID of ' . $post->id . ' successfully updated.');
