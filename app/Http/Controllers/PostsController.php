@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use Image;
 use App\Post;
 use Storage;
@@ -114,6 +115,9 @@ class PostsController extends Controller
     {
         $post = Post::find(request('id'));
         $post->delete();
+
+        // Deleting thumbnail image of post (Storage::delete() didnt work for some reason, File did)
+        File::delete(public_path($post->thumbnail_path));
 
         session()->flash('success', 'Post with id of ' . request()->id . ' successfully deleted');
 
