@@ -53,8 +53,9 @@ class PostsController extends Controller
 
         // If article thumbnail image was uploaded, store it, else, set path to NULL
         if (request()->hasFile('img')) {
+            
             // setting file path and image name, then saving it
-            $imgPath = 'article_thumbnails/' . request()->img->getClientOriginalName();
+            $imgPath = 'article_thumbnails/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img->getClientOriginalExtension();
             Storage::disk('uploads')->put($imgPath, file_get_contents(request()->img));
 
             // Resizing image to fit better
