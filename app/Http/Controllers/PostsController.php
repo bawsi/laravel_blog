@@ -115,6 +115,9 @@ class PostsController extends Controller
         $post = Post::find(request('id'));
         $post->delete();
 
+        // Deleting thumbnail image of post
+        Storage::delete(public_path() . $post->thumbnail_path);
+
         session()->flash('success', 'Post with id of ' . request()->id . ' successfully deleted');
 
         return back();
