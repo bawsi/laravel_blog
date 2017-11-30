@@ -744,10 +744,12 @@ div.container-posts-show h1.title {
   font-family: 'Racing Sans One';
   font-size: 35px;
   margin-bottom: 40px;
+  text-shadow: 1px 1px 3px black;
 }
 
 div.container-posts-show h2.subtitle {
   font-size: 14px;
+  text-shadow: 1px 1px 1px black;
 }
 
 div.container-posts-show article {
