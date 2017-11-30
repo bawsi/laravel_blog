@@ -52,22 +52,31 @@ class PostsController extends Controller
         ]);
 
         // If article thumbnail image was uploaded, store it, else, set path to NULL
-        if (request()->hasFile('img')) {
+        if (request()->hasFile('img_thumbnail')) {
             
             // setting file path and image name, then saving it
-            $imgPath = 'article_thumbnails/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img->getClientOriginalExtension();
-            Storage::disk('uploads')->put($imgPath, file_get_contents(request()->img));
+            $thumbnailPath = 'article_thumbnails/' . time() . '_' . str_random(15) . '.' . request()->img_thumbnail->getClientOriginalExtension();
+            Storage::disk('uploads')->put($thumbnailPath, file_get_contents(request()->img_thumbnail));
 
             // Resizing image to fit better
-            $img = Image::make('uploads/' . $imgPath);
+            $img = Image::make('uploads/' . $thumbnailPath);
             $img->fit(450, 200);
             $img->save();
         }
 
+        // If article header image was uploaded, store it, else, set path to NULL
+        if (request()->hasFile('img_header')) {
+            
+            $headerPath = 'article_headers/' . time() . '_' . str_random(15) . '.' . request()->img_header->getClientOriginalExtension();
+            Storage::disk('uploads')->put($headerPath, file_get_contents(request()->img_header));
+        }
+
+        // Storing post to db
         $post = Post::create([
             'title'          => request('title'),
             'body'           => request('body'),
-            'thumbnail_path' => isset($imgPath) ? 'uploads/' . $imgPath : null,
+            'thumbnail_path' => isset($thumbnailPath) ? 'uploads/' . $thumbnailPath : null,
+            'header_path'    => isset($headerPath) ? 'uploads/' . $headerPath : null,
             'user_id'        => auth()->id(),
             'category_id'    => request('category'),
         ]);

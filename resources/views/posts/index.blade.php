@@ -22,7 +22,7 @@
 				@foreach($posts as $post)
 					<tr>
 						<th>{{ $post->id }} </th>
-						<td>{{ substr($post->title, 0, 25) }} {{ (strlen($post->title) > 25) ? '...' : '' }} </td>
+						<td><a href="{{ route('posts.show', $post->id) }}">{{ substr($post->title, 0, 25) }} {{ (strlen($post->title) > 25) ? '...' : '' }} </a></td>
 						<td>{{ $post->user->name }}</td>
 						<td>{{ $post->category->name }} </td>
 						<td>{{ $post->created_at->toFormattedDateString() }} </td>
