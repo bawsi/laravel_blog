@@ -12,3 +12,5 @@ yarn-error.log
 .env
 
 public/uploads/article_thumbnails/
+
+public/uploads/article_headers/
