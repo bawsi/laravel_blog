@@ -112,7 +112,7 @@ class PostsController extends Controller
             // Deleting old thumbnail img
             File::delete(public_path($post->thumbnail_path));
 
-             // setting file path and image name, then saving it
+            // setting file path and image name, then saving it
             $imgPath = 'article_thumbnails/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img->getClientOriginalExtension();
             Storage::disk('uploads')->put($imgPath, file_get_contents(request()->img));
 
