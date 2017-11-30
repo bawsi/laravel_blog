@@ -5,8 +5,8 @@
 		
 		@component('components.hero')
 			@slot('colorClass', 'is-info')
-			@slot('sizeClass', 'is-medium')
-			@slot('backgroundImg', 'http://i.imgur.com/EiQv0CQ.png')
+			@slot('sizeClass', 'is-medium') 
+			@slot('backgroundImg', $post->header_path ?? '')
 			@slot('title', $post->title)
 			@slot('subtitle', 'Author: ' . $post->user->name . ' | Category: ' . $post->category->name . ' | Published On: ' . $post->created_at->toFormattedDateString())
 		@endcomponent
