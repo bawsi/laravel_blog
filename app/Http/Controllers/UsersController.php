@@ -50,12 +50,12 @@ class UsersController extends Controller
                 'name' => 'nullable|min:2|max:40',
                 'email' => 'nullable|email|unique:users,email',
                 'password' => 'nullable|min:4|max:40|confirmed',
-                'role-id'  => 'nullable|exists:roles,id'
+                'role_id'  => 'nullable|exists:roles,id'
             ]);
 
             // Filtering out all request values that were not set, so we dont update those
             $dataToUpdate = array_filter(request()->all());
-
+            
             $user->update($dataToUpdate);
 
             session()->flash('success', 'User successfully updated');
