@@ -23,7 +23,12 @@
 						<td>{{ $user->email }}</td>
 						<td>{{ $user->role->name }}</td>
 						<td>{{ $user->posts->count() }}</td>
-						<td>{{ $user->posts->last()->title ?? "No posts yet" }}</td>
+						
+						<td>
+							{!! isset($user->posts->last()->title) ? 
+							'<a href="' . route('posts.show', $user->posts->last()->id) .'">' . substr($user->posts->last()->title, 0, 15) . '...</a>' : 
+							'No posts yet' !!}
+						</td>
 						
 						<td>
 							<button class="button is-info is-small edit-btn"><span class="fa fa-pencil-square-o"></span></button>
