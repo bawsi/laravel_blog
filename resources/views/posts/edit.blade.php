@@ -20,7 +20,10 @@
 			</select>
 
 			<label for="img">Article thumbnail image (Preferrable size 450x200. Will be cropped and resized otherwise)</label>
-			<input type="file" name="img" class="input" value="{{ old('img') }}">
+			<input type="file" name="img_thumbnail" class="input" value="{{ old('img') }}">
+			
+			<label for="img">Article header image (Preferrable size 2560x460)</label>
+			<input type="file" name="img_header" class="input" value="{{ old('img_header') }}">
 
 			<label for="body">Post body</label>
 			<textarea id="article-body" class="textarea" name="body">{{ $post->body }}</textarea>
