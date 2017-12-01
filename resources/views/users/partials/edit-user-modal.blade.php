@@ -14,8 +14,8 @@
 			<label for="new-posts-category">New email</label>
 			<input class="input" type="email" name="email" minlength="2" maxlength="25" placeholder="Email here">
 			<label for="new-posts-category">New role</label>
-			{{-- TODO: fix form not submitting the correct value --}}
-			<select class="select" name="role-id">
+			
+			<select class="select" name="role_id">
 				<option selected disabled value>Keep the same</option>
 				@foreach($roles as $role)
 					<option value="{{ $role->id }}">{{ $role->name }}</option>
