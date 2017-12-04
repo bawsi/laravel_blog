@@ -19,7 +19,17 @@
 		{{-- Navbar left --}}
 		<div class="navbar-start">
 			<a class="navbar-item" href="/">Home</a>
-			<a class="navbar-item" href="/">Categories</a>
+				
+				{{-- Displaying categories from db --}}
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link  is-active">Categories</a>
+					<div class="navbar-dropdown ">
+						@foreach($categories as $category)
+							<a class="navbar-item " href="{{ route('manage.dashboard') }}">{{ $category->name }}</a>
+						@endforeach
+					</div>
+				</div>
+
 			<a class="navbar-item" href="/contact">Contact me</a>
 		</div>
 		
@@ -29,8 +39,8 @@
 				<div class="navbar-start">
 					<div class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link  is-active">Account</a>
-						
 						<div class="navbar-dropdown ">
+							
 							@if (auth()->check())
 								<a class="navbar-item " href="{{ route('manage.dashboard') }}">Manage</a>
 								<hr class="navbar-divider">
@@ -38,6 +48,7 @@
 							@else
 								<a class="navbar-item" href="{{ route('auth.login') }}">Login</a>
 							@endif
+
 						</div>
 
 					</div>
