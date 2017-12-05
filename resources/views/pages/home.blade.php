@@ -17,30 +17,14 @@
 				
 				{{-- Articles --}}
 				@foreach($posts as $post)
-					<div class="column is-one-third">
-						<div class="card">
-
-							<div class="card-image">
-								<figure class="image">
-									<img src="{{ $post->thumbnail_path }}" alt="Image">
-								</figure>
-							</div>
-
-							<div class="card-content">
-								<div class="media">
-									<div class="media-content">
-										<p class="subtitle is-6 m-b-30">
-											<span class="fa fa-user-o m-t-2"></span> {{ $post->user->name }}
-											<span class="fa fa-folder-open-o m-l-10 m-t-2"></span> {{ $post->category->name }} 
-											<span class="fa fa-calendar m-l-10 m-t-2"></span> {{ $post->created_at->toFormattedDateString() }}</p>
-										<p class="title is-4">{{ $post->title }}</p>
-										<a href="{{ route('posts.show', $post->id) }}" class="button is-info">Read more</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
+					@component('components.article-thumbnail')
+						@slot('thumbnailPath', $post->thumbnail_path)
+						@slot('userName', $post->user->name)
+						@slot('categoryName', $post->category->name)
+						@slot('createdAt', $post->created_at->toFormattedDateString())
+						@slot('postTitle', $post->title)
+						@slot('linkTo', route('posts.show', $post->id))
+					@endcomponent
 				@endforeach {{-- end of articles --}}
 
 			</div>
