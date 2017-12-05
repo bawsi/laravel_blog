@@ -51,20 +51,22 @@ class CategoriesController extends Controller
     * Move all posts from category we are deleting, to
     * another category, and then delete the category
     */
-   public function destroy(Category $category)
+   public function destroy($categoryId)
    {
-       $this->validate(request(), [
+        $category = Category::find($categoryId);    
+
+        $this->validate(request(), [
             'new-category-id' => 'exists:categories,id',
         ]);
 
-       // Updating category_id on posts
-       Post::where('category_id', $category->id)->update(['category_id' => request('new-category-id')]);
+        // Updating category_id on posts
+        Post::where('category_id', $category->id)->update(['category_id' => request('new-category-id')]);
 
-       $category->delete();
+        $category->delete();
 
-       session()->flash('success', 'Category ' . $category->name . ' successfully deleted, and all of its posts moved');
+        session()->flash('success', 'Category ' . $category->name . ' successfully deleted, and all of its posts moved');
 
-       return redirect()->back();
+        return redirect()->back();
    }
 
     /**
