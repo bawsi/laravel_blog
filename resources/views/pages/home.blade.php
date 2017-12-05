@@ -30,7 +30,7 @@
 								<div class="media">
 									<div class="media-content">
 										<p class="subtitle is-6 m-b-30">
-											<span class="fa fa-user-o m-t-2"></span> John Doe 
+											<span class="fa fa-user-o m-t-2"></span> {{ $post->user->name }}
 											<span class="fa fa-folder-open-o m-l-10 m-t-2"></span> {{ $post->category->name }} 
 											<span class="fa fa-calendar m-l-10 m-t-2"></span> {{ $post->created_at->toFormattedDateString() }}</p>
 										<p class="title is-4">{{ $post->title }}</p>
