@@ -32,6 +32,8 @@
 			`);
 		});
 
+		// --------------------------------------------------------------------------------------------------------------
+
 		// When user clicks cancel button, on category editing form, replace form with normal text
 		$(document).on('click', 'button.close-edit-input', function() {
 			const form = $(this).parents().eq(2);
