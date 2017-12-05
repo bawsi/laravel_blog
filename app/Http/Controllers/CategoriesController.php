@@ -19,6 +19,17 @@ class CategoriesController extends Controller
     }
 
     /**
+     * Get posts for single category
+     */
+    public function show(Category $category)
+    {
+      $posts = $category->posts()->orderBy('id', 'DESC')->paginate(9);
+      $category = $category;
+
+      return view('categories.show')->with(compact('posts', 'category'));
+    }
+
+    /**
      * Update category data
      */
    public function update(Category $category)

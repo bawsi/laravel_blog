@@ -25,7 +25,7 @@
 					<a class="navbar-link  is-active">Categories</a>
 					<div class="navbar-dropdown ">
 						@foreach($categories as $category)
-							<a class="navbar-item " href="{{ route('manage.dashboard') }}">{{ $category->name }}</a>
+							<a class="navbar-item " href="{{ route('categories.show', $category->name) }}">{{ $category->name }}</a>
 						@endforeach
 					</div>
 				</div>

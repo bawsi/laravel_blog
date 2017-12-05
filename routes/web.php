@@ -6,6 +6,9 @@ Route::get('/', 'PagesController@index')->name('pages.home');
 // public posts routes
 Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
 
+// public category routes
+Route::get('/categories/{category}', 'CategoriesController@show')->name('categories.show');
+
 // Routes under manage prefix (administration only)
 Route::middleware('auth')->prefix('manage')->group(function() {
 	// users routes
