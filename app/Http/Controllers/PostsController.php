@@ -75,8 +75,8 @@ class PostsController extends Controller
         $post = Post::create([
             'title'          => request('title'),
             'body'           => request('body'),
-            'thumbnail_path' => isset($thumbnailPath) ? 'uploads/' . $thumbnailPath : null,
-            'header_path'    => isset($headerPath) ? 'uploads/' . $headerPath : null,
+            'thumbnail_path' => isset($thumbnailPath) ? '/uploads/' . $thumbnailPath : null,
+            'header_path'    => isset($headerPath) ? '/uploads/' . $headerPath : null,
             'user_id'        => auth()->id(),
             'category_id'    => request('category'),
         ]);
@@ -137,8 +137,8 @@ class PostsController extends Controller
             'title'          => request('title'),
             'body'           => request('body'),
             'category_id'    => request('category'),
-            'thumbnail_path' => isset($thumbnailPath) ? 'uploads/' . $thumbnailPath : $post->img_thumbnail,
-            'header_path'    => isset($headerPath) ? 'uploads/' . $headerPath : $post->img_header,
+            'thumbnail_path' => isset($thumbnailPath) ? '/uploads/' . $thumbnailPath : $post->img_thumbnail,
+            'header_path'    => isset($headerPath) ? '/uploads/' . $headerPath : $post->img_header,
         ]);
 
         session()->flash('success', 'Post with ID of ' . $post->id . ' successfully updated.');
