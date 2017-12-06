@@ -30,7 +30,7 @@
 					</div>
 				</div>
 
-			<a class="navbar-item" href="/contact">Contact me</a>
+			<a class="navbar-item" href="{{ route('pages.contact') }}">Contact me</a>
 		</div>
 		
 		{{-- Navbar right --}}

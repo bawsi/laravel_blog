@@ -1,7 +1,9 @@
 <?php
 
-// Page routes
-Route::get('/', 'PagesController@index')->name('pages.home');
+// Pages routes
+Route::get('/', 'PagesController@getHome')->name('pages.home');
+Route::get('/contact', 'PagesController@getContact')->name('pages.contact');
+Route::post('/contact', 'PagesController@postContact')->name('pages.postContact');
 
 // public posts routes
 Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
