@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class ManageController extends Controller
@@ -13,6 +14,9 @@ class ManageController extends Controller
 
     public function dashboard()
     {
-    	return view('manage.dashboard');
+    	$mostActiveCategoryId = auth()->user()->posts->groupBy('category_id')->max()->first()->category_id;
+    	$categoryName = Category::find($mostActiveCategoryId)->name;
+
+    	return view('manage.dashboard')->with(compact('categoryName'));
     }
 }
