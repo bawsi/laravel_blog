@@ -91,9 +91,15 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        $categories = Category::orderBy('id')->get();
+        // If admin or post author, go to edit page
+        if (auth()->user()->id == 1 || auth()->user()->id == $post->user_id) {
+            $categories = Category::orderBy('id')->get();
+            return view('posts.edit')->with(compact('post', 'categories'));
+        }
 
-        return view('posts.edit')->with(compact('post', 'categories'));
+        // Else, redirect to dashboard with error
+        return redirect()->route('manage.dashboard')->withErrors(['You do not have access to that page!']);
+       
     }
 
     /**
