@@ -107,49 +107,55 @@ class PostsController extends Controller
      */
     public function update(Post $post)
     {
-        $this->validate(request(), [
+        // If admin or post author, update post
+        if (auth()->user()->id == 1 || auth()->user()->id == $post->user_id) {
+            $this->validate(request(), [
             'title'    => 'min:2|max:100',
             'body'     => 'min:30',
             'category' => 'exists:categories,id',
-        ]);
+            ]);
 
-        // If new thumbnail image was uploaded, delete old one, upload and resize new one
-        if (request()->hasFile('img_thumbnail')) {
-            // Deleting old thumbnail img
-            File::delete(public_path($post->thumbnail_path));
+            // If new thumbnail image was uploaded, delete old one, upload and resize new one
+            if (request()->hasFile('img_thumbnail')) {
+                // Deleting old thumbnail img
+                File::delete(public_path($post->thumbnail_path));
 
-            // setting file path and image name, then saving it
-            $thumbnailPath = 'article_thumbnails/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img_thumbnail->getClientOriginalExtension();
-            Storage::disk('uploads')->put($thumbnailPath, file_get_contents(request()->img_thumbnail));
+                // setting file path and image name, then saving it
+                $thumbnailPath = 'article_thumbnails/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img_thumbnail->getClientOriginalExtension();
+                Storage::disk('uploads')->put($thumbnailPath, file_get_contents(request()->img_thumbnail));
 
-            // Resizing image to fit better
-            $thumbnail_path = Image::make('uploads/' . $thumbnailPath);
-            $thumbnail_path->fit(450, 200);
-            $thumbnail_path->save();
+                // Resizing image to fit better
+                $thumbnail_path = Image::make('uploads/' . $thumbnailPath);
+                $thumbnail_path->fit(450, 200);
+                $thumbnail_path->save();
+            }
+
+            // If new header image was uploaded, delete old one, upload new one
+            if (request()->hasFile('img_header')) {
+                // Deleting old  header img
+                File::delete(public_path($post->header_path));
+
+                // setting file path and image name, then saving it
+                $headerPath = 'article_headers/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img_header->getClientOriginalExtension();
+                Storage::disk('uploads')->put($headerPath, file_get_contents(request()->img_header));
+            }
+
+
+            $post->update([
+                'title'          => request('title'),
+                'body'           => request('body'),
+                'category_id'    => request('category'),
+                'thumbnail_path' => isset($thumbnailPath) ? '/uploads/' . $thumbnailPath : $post->img_thumbnail,
+                'header_path'    => isset($headerPath) ? '/uploads/' . $headerPath : $post->img_header,
+            ]);
+
+            session()->flash('success', 'Post with ID of ' . $post->id . ' successfully updated.');
+
+            return redirect()->route('posts.index');
         }
 
-        // If new header image was uploaded, delete old one, upload new one
-        if (request()->hasFile('img_header')) {
-            // Deleting old  header img
-            File::delete(public_path($post->header_path));
-
-            // setting file path and image name, then saving it
-            $headerPath = 'article_headers/' . time() . '_' . auth()->id() . '_' . str_random(15) . '.' . request()->img_header->getClientOriginalExtension();
-            Storage::disk('uploads')->put($headerPath, file_get_contents(request()->img_header));
-        }
-
-
-        $post->update([
-            'title'          => request('title'),
-            'body'           => request('body'),
-            'category_id'    => request('category'),
-            'thumbnail_path' => isset($thumbnailPath) ? '/uploads/' . $thumbnailPath : $post->img_thumbnail,
-            'header_path'    => isset($headerPath) ? '/uploads/' . $headerPath : $post->img_header,
-        ]);
-
-        session()->flash('success', 'Post with ID of ' . $post->id . ' successfully updated.');
-
-        return redirect()->route('posts.index');
+        // Else, redirect to dashboard with error
+        return redirect()->route('manage.dashboard')->withErrors(['You do not have access to that page!']);
     }
 
     /**
