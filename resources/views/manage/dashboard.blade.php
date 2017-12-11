@@ -34,7 +34,7 @@
 			<div class="panel">
 				<p class="panel-heading">Your latest article published on</p>
 				<div class="panel-block">
-					<p>{{ auth()->user()->posts->first()->created_at->toFormattedDateString() }}</p>
+					<p>{{ $latestArticleCreatedAt }}</p>
 				</div>
 			</div>
 		</div>
