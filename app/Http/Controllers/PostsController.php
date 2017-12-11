@@ -164,13 +164,20 @@ class PostsController extends Controller
     public function destroy()
     {
         $post = Post::find(request('id'));
-        $post->delete();
 
-        // Deleting thumbnail image of post (Storage::delete() didnt work for some reason, File did)
-        File::delete(public_path($post->thumbnail_path));
+        // If admin or post author, delete post and all images associated with it
+        if (auth()->user()->id == 1 || auth()->user()->id == $post->user_id) {
+            $post->delete();
 
-        session()->flash('success', 'Post with id of ' . request()->id . ' successfully deleted');
+            // Deleting thumbnail image of post (Storage::delete() didnt work for some reason, File did)
+            File::delete(public_path($post->thumbnail_path));
 
-        return back();
+            session()->flash('success', 'Post with id of ' . request()->id . ' successfully deleted');
+
+            return back();
+        }
+
+        // Else, redirect to dashboard with error
+        return redirect()->route('manage.dashboard')->withErrors(['You do not have access to that page!']);
     }
 }
