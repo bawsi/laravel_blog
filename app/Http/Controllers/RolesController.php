@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Display an index of all roles
      */

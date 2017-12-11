@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+
+    public function __construct() 
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Show an index of all users
      */
