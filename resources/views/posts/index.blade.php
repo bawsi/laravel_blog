@@ -32,15 +32,20 @@
 						<td>{{ $post->created_at->toFormattedDateString() }} </td>
 						<td>{{ $post->updated_at->toFormattedDateString() }} </td>
 						<td>
-							<form action="/manage/posts/{{ $post->id }}" method="POST">
-								{{-- Edit button is here, cause otherwise, form wraps to another line.. temporary --}}
-								<a href="{{ route('posts.edit', $post->id) }}" class="button is-info is-small"><span class="fa fa-pencil-square-o"></span></a>
+							{{-- Show edit and delete buttons only if user is post author or admin --}}
+							@if (auth()->user()->id == $post->user_id || auth()->user()->role->id == 1)
+								<form action="/manage/posts/{{ $post->id }}" method="POST">
+									{{-- Edit button is here, cause otherwise, form wraps to another line.. temporary --}}
+									<a href="{{ route('posts.edit', $post->id) }}" class="button is-info is-small"><span class="fa fa-pencil-square-o"></span></a>
+									
+									{{ method_field('DELETE') }}
+									{{ csrf_field() }}
+									<input type="hidden" name="id" value="{{ $post->id }}">
 
-								{{ method_field('DELETE') }}
-								{{ csrf_field() }}
-								<input type="hidden" name="id" value="{{ $post->id }}">
-								<button type="submit" class="button is-danger is-small"><span class="fa fa-trash-o"></span></a>
-							</form>
+									{{-- Delete button --}}
+									<button type="submit" class="button is-danger is-small"><span class="fa fa-trash-o"></span></a>
+								</form>
+							@endif
 						</td>
 					</tr>
 				@endforeach
