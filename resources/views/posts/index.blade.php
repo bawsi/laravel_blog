@@ -24,7 +24,7 @@
 						<th>{{ $post->id }} </th>
 						
 						<td><a href="{{ route('posts.show', $post->id) }}">
-							{{ substr($post->title, 0, 25) }} {{ (strlen($post->title) > 25) ? '...' : '' }} 
+							{{ substr($post->title, 0, 15) }} {{ (strlen($post->title) > 15) ? '...' : '' }} 
 						</a></td>
 						
 						<td>{{ $post->user->name }}</td>
