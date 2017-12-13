@@ -113,7 +113,7 @@ class PostsController extends Controller
             'title'    => 'min:2|max:100',
             'body'     => 'min:30',
             'category' => 'exists:categories,id',
-            ]);
+        ]);
 
             // If new thumbnail image was uploaded, delete old one, upload and resize new one
             if (request()->hasFile('img_thumbnail')) {
@@ -140,13 +140,12 @@ class PostsController extends Controller
                 Storage::disk('uploads')->put($headerPath, file_get_contents(request()->img_header));
             }
 
-
             $post->update([
                 'title'          => request('title'),
                 'body'           => request('body'),
                 'category_id'    => request('category'),
-                'thumbnail_path' => isset($thumbnailPath) ? '/uploads/' . $thumbnailPath : $post->img_thumbnail,
-                'header_path'    => isset($headerPath) ? '/uploads/' . $headerPath : $post->img_header,
+                'thumbnail_path' => isset($thumbnailPath) ? '/uploads/' . $thumbnailPath : $post->thumbnail_path,
+                'header_path'    => isset($headerPath) ? '/uploads/' . $headerPath : $post->header_path,
             ]);
 
             session()->flash('success', 'Post with ID of ' . $post->id . ' successfully updated.');
