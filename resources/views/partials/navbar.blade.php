@@ -43,6 +43,7 @@
 							
 							@if (auth()->check())
 								<a class="navbar-item " href="{{ route('manage.dashboard') }}">Manage</a>
+								<a class="navbar-item " href="{{ route('account.edit') }}">Settings</a>
 								<hr class="navbar-divider">
 								<a class="navbar-item " href="{{ route('auth.logout') }}">Logout</a>
 							@else

@@ -11,6 +11,12 @@ Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
 // public category routes
 Route::get('/categories/{category}', 'CategoriesController@show')->name('categories.show');
 
+// Account routes
+Route::middleware('auth')->prefix('account')->group(function() {
+	Route::get('settings', 'AccountController@edit')->name('account.edit');
+	Route::patch('settings', 'AccountController@update')->name('account.update');
+});
+
 // Routes under manage prefix (administration only)
 Route::middleware('auth')->prefix('manage')->group(function() {
 	// users routes
