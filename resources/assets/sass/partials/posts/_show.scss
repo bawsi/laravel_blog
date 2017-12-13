@@ -18,5 +18,12 @@ div.container-posts-show {
 		padding: 40px 30px;
 		box-shadow: 1px 1px 3px 1px #D4DAD3;
 		font-family: 'Open Sans';
+		
+		// Edit and delete buttons
+		div.buttons {
+			position: absolute;
+			right: 5px;
+			top: 0px;
+		}
 	}
 }
