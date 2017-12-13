@@ -172,6 +172,9 @@ class PostsController extends Controller
             // Deleting thumbnail image of post (Storage::delete() didnt work for some reason, File did)
             File::delete(public_path($post->thumbnail_path));
 
+            // Deleting header image of post 
+            File::delete(public_path($post->header_path));
+
             session()->flash('success', 'Post with id of ' . request()->id . ' successfully deleted');
 
             return back();
