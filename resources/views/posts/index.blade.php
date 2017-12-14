@@ -33,7 +33,7 @@
 							{{ substr($post->title, 0, 15) }} {{ (strlen($post->title) > 15) ? '...' : '' }} 
 						</a></td>
 						
-						<td>{{ $post->user->name }}</td>
+						<td class="name">{{ $post->user->name }}</td>
 						<td>{{ $post->category->name }} </td>
 						<td>{{ $post->created_at->toFormattedDateString() }} </td>
 						<td>{{ $post->updated_at->toFormattedDateString() }} </td>
