@@ -4,7 +4,13 @@
 
 	<div class="container-posts-index">
 		<h1 class="title is-2">Posts index</h1>
+
+		<div class="filter-table">
+			<input type="checkbox" id="filter-checkbox"> Show only my posts
+		</div>
+
 		<a href="{{ route('posts.create') }}" class="button is-success is-pulled-right"><span class="fa fa-plus-square-o"></span> New Post</a>
+
 		<table class="table">
 			<thead>
 				<tr>
