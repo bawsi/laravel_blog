@@ -3,6 +3,11 @@ div.container-posts-index {
 	padding: 20px 30px;
 	box-shadow: 1px 1px 2px 1px #D7E3E0;
 
+	div.filter-table {
+		display: inline-block;
+		margin: 10px 0px 0px 10px;
+	}
+
 	> a.button {
 		margin-bottom: 10px;
 
