@@ -42,7 +42,7 @@
 						<div class="navbar-dropdown ">
 							
 							@if (auth()->check())
-								<p class="navbar-item"><i>Logged in as: {{ Auth::user()->name }}</i></p>
+								<p class="navbar-item users-name"><i>Logged in as: {{ Auth::user()->name }}</i></p>
 								<hr class="navbar-divider">
 								<a class="navbar-item " href="{{ route('manage.dashboard') }}">Manage</a>
 								<a class="navbar-item " href="{{ route('account.edit') }}">Settings</a>
