@@ -38,10 +38,12 @@
 			<div id="navMenuExample" class="navbar-menu">
 				<div class="navbar-start">
 					<div class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link  is-active">Account</a>
+						<a class="navbar-link  is-active">Account &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 						<div class="navbar-dropdown ">
 							
 							@if (auth()->check())
+								<p class="navbar-item"><i>Logged in as: {{ Auth::user()->name }}</i></p>
+								<hr class="navbar-divider">
 								<a class="navbar-item " href="{{ route('manage.dashboard') }}">Manage</a>
 								<a class="navbar-item " href="{{ route('account.edit') }}">Settings</a>
 								<hr class="navbar-divider">
