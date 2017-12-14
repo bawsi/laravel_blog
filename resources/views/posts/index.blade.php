@@ -60,4 +60,9 @@
 		</table>
 	</div>
 
+	@section('scripts')
+		@include('posts.partials.scripts')
+	@endsection
+
 @endsection
+
