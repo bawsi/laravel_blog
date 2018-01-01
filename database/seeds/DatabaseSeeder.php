@@ -24,12 +24,12 @@ class DatabaseSeeder extends Seeder
 
     	// Making main admin account for testing
     	DB::table('users')->insert([
-            'name' 		=> 'Blaz',
-            'email' 	=> 'blaz@example.com',
+            'name' 		=> 'Admin',
+            'email' 	=> 'admin@example.com',
             'password'  => bcrypt('12345'),
             'role_id'   => 1,
-            'created_at' => time(),
-            'updated_at' => time()
+            'created_at' => date('Y-m-d H:i:s' ,time()),
+            'updated_at' => date('Y-m-d H:i:s' ,time())
         ]);
 
     	// Making random users and posts
