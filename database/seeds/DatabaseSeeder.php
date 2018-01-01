@@ -27,7 +27,9 @@ class DatabaseSeeder extends Seeder
             'name' 		=> 'Blaz',
             'email' 	=> 'blaz@example.com',
             'password'  => bcrypt('12345'),
-            'role_id'   => 1
+            'role_id'   => 1,
+            'created_at' => time(),
+            'updated_at' => time()
         ]);
 
     	// Making random users and posts
