@@ -527,6 +527,23 @@ div.container-success {
   margin-bottom: 20px;
 }
 
+div.login-container {
+  width: 450px;
+  margin-top: 20px;
+  background: white;
+  padding: 30px;
+  -webkit-box-shadow: 1px 1px 1px 1px #D7D7D7;
+          box-shadow: 1px 1px 1px 1px #D7D7D7;
+}
+
+div.login-container #passLabel {
+  margin-top: 15px;
+}
+
+div.login-container button {
+  margin-top: 10px;
+}
+
 div.container-users-index {
   background: white;
   padding: 20px 30px;
@@ -750,17 +767,21 @@ div.container-roles-index div.delete-modal div.modal-content button.modal-close:
 }
 
 div.contact-form {
-  width: 500px;
+  width: 600px;
   margin: 0 auto;
   margin-top: 10px;
-  padding: 30px 10px;
+  padding: 30px;
   background: white;
-  -webkit-box-shadow: 1px 1px 3px 1px #dddddd;
-          box-shadow: 1px 1px 3px 1px #dddddd;
+  -webkit-box-shadow: 1px 1px 1px 1px #D7D7D7;
+          box-shadow: 1px 1px 1px 1px #D7D7D7;
 }
 
 div.contact-form h1.title {
   text-align: center;
+}
+
+div.contact-form .fa {
+  margin-left: 5px;
 }
 
 div.container-posts-show h1.title {

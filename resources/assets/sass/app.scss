@@ -3,11 +3,15 @@ body, html {
 	background-color: #fafafa;
 }
 
+// Variables
+$boxShadow: 1px 1px 1px 1px #D7D7D7;
+
 // General partials
 @import 'partials/_helpers.scss';
 @import 'partials/_navbar.scss';
 @import 'partials/_footer.scss';
 @import 'partials/_messages.scss';
+@import 'partials/_login.scss';
 
 // Users partials
 @import 'partials/users/_index.scss';
