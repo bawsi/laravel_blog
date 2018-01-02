@@ -4,6 +4,8 @@
 	
 	<div class="contact-form">
 		<h1 class="title">Contact me</h1>
+		<hr>
+
 		<form action="{{ route('pages.postContact') }}" method="POST">
 			{{ csrf_field() }}
 			<label for="name" class="label">Name</label>
