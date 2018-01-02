@@ -1,0 +1,15 @@
+div.login-container {
+	width: 450px;
+	margin-top: 20px;
+	background: white;
+	padding: 30px;
+	box-shadow: $boxShadow;
+	
+	#passLabel {
+		margin-top: 15px;
+	}
+
+	button {
+		margin-top: 10px;
+	}
+}
