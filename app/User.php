@@ -9,8 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    // This is used to auto hash the password with bcrypt, when updating the user - since I am 
-    // using request()->all() for updating, and not setting each value manually
+    // This is used to auto hash the password with bcrypt, when updating and setting new user
     public function setPasswordAttribute($password)
     {   
         $this->attributes['password'] = bcrypt($password);
