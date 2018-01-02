@@ -34,12 +34,14 @@ class UsersController extends Controller
     		'name' => 'min:2|max:40',
     		'email' => 'email|unique:users,email',
     		'password' => 'min:4|max:40|confirmed',
+            'role-id' => 'exists:roles,id'
     	]);
 
     	User::create([
     		'name' => request('name'),
     		'email' => request('email'), 
-    		'password' => request('password')
+    		'password' => request('password'),
+            'role_id' => request('role-id')
     	]);
 
     	session()->flash('success', 'User successfully created.');

@@ -10,6 +10,12 @@
 			<input class="input" type="text" name="name" required="required" minlength="2" maxlength="15" placeholder="Users name here">
 			<label for="new-posts-category">Email</label>
 			<input class="input" type="email" name="email" required="required" minlength="2" maxlength="25" placeholder="Email here">
+			<label for="new-posts-category">Email</label>
+			<select class="input" name="role-id" id="role-id">
+				@foreach(App\Role::all() as $role)
+					<option value="{{ $role->id }}">{{ $role->name }}</option>
+				@endforeach
+			</select>
 			<label for="new-posts-category">Password</label>
 			<input class="input" type="password" name="password" required="required" minlength="2" maxlength="35" placeholder="Password here">
 			<label for="new-posts-category">Password confirmation</label>
