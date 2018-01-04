@@ -4,6 +4,7 @@
 
 	<div class="container login-container">
 			<h1 class="title">Login</h1>
+			<p><strong>Email:</strong> admin@example.com <strong>Password:</strong> 12345</p>
 			<hr>
 		<form action="{{ route('auth.login') }}" method="POST">
 			{{ csrf_field() }}
