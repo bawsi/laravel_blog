@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\User;
+use App\Post;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -54,6 +55,12 @@ class UsersController extends Controller
      */
     public function update(User $user)
         {
+            // Prevent updating of main admin account in this demo.
+            if ($user->id == 1) {
+                session()->flash('customError', 'Sorry, you cant update admin account in this demo. You are free to update any other accoutns tho.');
+                return back();
+            }
+
             $this->validate(request(), [
                 'name'     => 'nullable|min:2|max:40',
                 'email'    => 'nullable|email|unique:users,email',
@@ -77,6 +84,12 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
+        // Prevent deletion of main admin account in this demo
+        if ($user->id == 1) {
+            session()->flash('customError', 'Sorry, you cant remove main admin account in this demo.');
+            return back();
+        } 
+
         $this->validate(request(), [
             'new-user-id' => 'exists:users,id',
         ]);

@@ -13,6 +13,12 @@ class AccountController extends Controller
 
     public function update()
     {
+        // Prevent updating of main admin account
+        if (auth()->user()->id == 1) {
+            session()->flash('customError', 'Sorry, you cant update admin account in this demo. You are free to update any other accoutns tho.');
+            return back();
+        }
+
     	$this->validate(request(), [
     		'name' => 'min:2|max:40',
     		'email' => 'email',
