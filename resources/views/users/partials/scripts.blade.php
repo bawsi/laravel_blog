@@ -26,7 +26,7 @@
 			const id = $(this).parents().eq(1).children().first().text();
 			const form = $('div.delete-modal form');
 
-			form.attr('method', '/manage/users/' + id);
+			form.attr('action', '/manage/users/' + id);
 
 
 			// select all select options
