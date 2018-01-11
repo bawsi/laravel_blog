@@ -5,7 +5,7 @@
 				Copyright © 2017 Blaž Petek
 			</p>
 			<p>
-				<a class="icon" href="https://github.com/bawsi" target="_blank">
+				<a class="icon" href="https://github.com/petekblaz" target="_blank">
 					<i class="fa fa-github"></i>
 				</a>
 				<a class="icon" href="mailto:petekblaz94@gmail.com">
