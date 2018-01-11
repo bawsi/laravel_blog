@@ -18,8 +18,20 @@
 				@if (Auth::check())
 					@if ($post->user_id == Auth::user()->id || Auth::user()->role_id == 1)
 						<div class="buttons">
-							<a href="{{ route('posts.edit', $post->id) }}" class="button is-info m-t-10" type="submit"><span class="fa fa-pencil-square-o m-r-5"></span> Edit Article</a>
-							<a href="{{ route('posts.destroy', $post->id) }}" class="button is-danger m-t-10" type="submit"><span class="fa fa-trash-o m-r-5"></span> Delete Article</a>
+							{{-- <a href="{{ route('posts.edit', $post->id) }}" class="button is-info m-t-10" type="submit"><span class="fa fa-pencil-square-o m-r-5"></span> Edit Article</a>
+							<a href="{{ route('posts.destroy', $post->id) }}" class="button is-danger m-t-10" type="submit"><span class="fa fa-trash-o m-r-5"></span> Delete Article</a> --}}
+
+							<form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+								{{-- Edit button is here, cause otherwise, form wraps to another line.. temporary --}}
+								<a href="{{ route('posts.edit', $post->id) }}" class="button is-info m-t-5"><span class="fa fa-pencil-square-o"> Edit Article</span></a>
+								
+								{{ method_field('DELETE') }}
+								{{ csrf_field() }}
+								<input type="hidden" name="id" value="{{ $post->id }}">
+
+								{{-- Delete button --}}
+								<button type="submit" class="button is-danger m-t-5"><span class="fa fa-trash-o"> Delete Article</span></a>
+							</form>
 						</div>
 					@endif
 				@endif

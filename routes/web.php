@@ -37,7 +37,7 @@ Route::middleware('auth')->prefix('manage')->group(function() {
 	Route::patch('/posts/{post}', 'PostsController@update')->name('posts.update');
 	Route::get('/posts/{post}/edit', 'PostsController@edit')->name('posts.edit');
 	Route::post('/posts', 'PostsController@store')->name('posts.store');
-	Route::delete('/posts/{id}', 'PostsController@destroy')->name('posts.destroy');
+	Route::delete('/posts/{post}', 'PostsController@destroy')->name('posts.destroy');
 
 	// Category routes
 	Route::get('/categories', 'CategoriesController@index')->name('categories.index');

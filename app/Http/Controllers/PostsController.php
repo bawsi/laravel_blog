@@ -160,10 +160,8 @@ class PostsController extends Controller
     /**
      * Delete post
      */
-    public function destroy()
+    public function destroy(Post $post)
     {
-        $post = Post::find(request('id'));
-
         // If admin or post author, delete post and all images associated with it
         if (auth()->user()->id == 1 || auth()->user()->id == $post->user_id) {
             $post->delete();
@@ -176,10 +174,10 @@ class PostsController extends Controller
 
             session()->flash('success', 'Post with id of ' . request()->id . ' successfully deleted');
 
-            return back();
+            return redirect()->route('posts.index');
         }
 
         // Else, redirect to dashboard with error
-        return redirect()->route('manage.dashboard')->withErrors(['You do not have access to that page!']);
+        return redirect()->back()->withErrors(['You do not have access to that page!']);
     }
 }
