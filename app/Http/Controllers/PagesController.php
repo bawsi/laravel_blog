@@ -35,7 +35,8 @@ class PagesController extends Controller
 
 		// Sending email to my own email adress, with details they entered in contact form
 		Mail::send(new Contact($request->name, $request->email, $request->subject, $request->msgBody));
-
+		session()->flash('success', 'Email was successfully sent. I will try to respond as fast as possible.');
+		
 		return view('pages.contact');
 	}
 }
