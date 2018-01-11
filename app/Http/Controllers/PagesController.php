@@ -13,7 +13,7 @@ class PagesController extends Controller
 	// Get all posts and show home page
     public function getHome()
 	{
-		$posts = Post::latest()->with('category')->paginate(9, ['*'], 'p');
+		$posts = Post::latest()->with('category')->orderBy('id', 'DESC')->paginate(9, ['*'], 'p');
 
 		return view('pages.home')->with(compact('posts'));
 	}

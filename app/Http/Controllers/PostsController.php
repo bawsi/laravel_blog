@@ -12,11 +12,11 @@ use Illuminate\Http\Request;
 class PostsController extends Controller
 {
     /**
-     * Homepage
+     * Articles index
      */
     public function index()
     {
-        $posts = Post::latest()->with('category')->get();
+        $posts = Post::latest()->with('category')->orderBy('id', 'DESC')->get();
 
         return view('posts.index')->with(compact('posts'));
     }
